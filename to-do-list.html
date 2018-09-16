@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>TodoList</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="to-do-list.css">
+	<link rel="icon" type="image/png" href="icon.ico">
+
+	<style type="text/css">
+		body{
+			background-image: url(clock.jpg);
+			
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+
+
+
+<body>
+	
+	<div class="container">
+		<h1 class="text-center display-1">To do list</h1>
+		<p class="text-center">welcome to my to do list</p>
+
+		<div class="input-group mb-3">
+
+  			<input type="text" class="form-control" placeholder="Add something to do" aria-label="Recipient's username" aria-describedby="button-addon2" id="input-tugas">
+
+  		<div class="input-group-append" id="tombol">
+
+    		<button class="btn btn-outline-success" type="button" id="button-addon2" >Add</button>
+  		</div>
+  	</div>
+
+  	<div class="list-group" id="daftar"></div>
+  	
+  	</div>
+
+	<script>
+		var inputDOM = document.getElementById("input-tugas");
+		var buttonDOM = document.getElementById("tombol");
+		var listDOM = document.getElementById("daftar")
+		var html= localStorage.getItem('html')
+		listDOM.innerHTML = html
+		buttonDOM.addEventListener('click', function(){
+			var tugas= inputDOM.value
+			console.log(tugas);
+			listDOM.innerHTML = listDOM.innerHTML + '<a href="#" class="list-group-item list-group-item-action list-group-item-primary">' +tugas + '</a>'
+			inputDOM.value= ''
+			localStorage.setItem('html', listDOM.innerHTML)
+		});
+	</script>
+
+
+</body>
+
+
+
+</html>
